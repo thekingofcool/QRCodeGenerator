@@ -24,7 +24,7 @@ def generate_qr_with_logo(url):
     if response.status_code == 200:
         favicon = Image.open(BytesIO(response.content))
         # Resize the favicon
-        favicon = favicon.resize((50, 50), Image.LANCZOS)
+        favicon = favicon.resize((100, 100), Image.LANCZOS)
         # Calculate the position to paste the favicon
         pos = ((qr_img.size[0] - favicon.size[0]) // 2, (qr_img.size[1] - favicon.size[1]) // 2)
         qr_img.paste(favicon, pos)

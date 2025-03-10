@@ -1,0 +1,35 @@
+name: QR Code Generator
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate_qr_code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Generate QR code
+      run: |
+        python qrcode_generator.py
+
+    - name: Upload QR code
+      uses: actions/upload-artifact@v2
+      with:
+        name: qrcode_with_logo
+        path: qrcode_with_logo.png

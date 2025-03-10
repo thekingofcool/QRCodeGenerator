@@ -19,7 +19,7 @@ def generate_qr_with_logo(url):
     qr_img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
 
     # Fetch favicon.ico
-    favicon_url = url.rstrip('/') + '/assets/images/favicon.ico'
+    favicon_url = url.rstrip('/') + '/assets/images/android-chrome-512x512.png'
     response = requests.get(favicon_url)
     if response.status_code == 200:
         favicon = Image.open(BytesIO(response.content))

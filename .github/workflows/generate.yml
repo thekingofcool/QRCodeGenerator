@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  MY_URL: ${{ secrets.MY_URL }}
+
 jobs:
   generate_qr_code:
     runs-on: ubuntu-latest

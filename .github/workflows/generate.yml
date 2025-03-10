@@ -29,7 +29,7 @@ jobs:
         python qrcode_generator.py
 
     - name: Upload QR code
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: qrcode_with_logo
         path: qrcode_with_logo.png
